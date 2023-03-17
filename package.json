@@ -9,7 +9,28 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:css",
+    "onLanguage:javascript",
+    "onLanguage:python",
+    "onLanguage:mysql",
+    "onLanguage:sql",
+    "onLanguage:cpp",
+    "onLanguage:csharp",
+    "onLanguage:typescript",
+    "onLanguage:jsx",
+    "onLanguage:tsx",
+    "onLanguage:vue",
+    "onLanguage:ruby",
+    "onLanguage:php",
+    "onLanguage:swift",
+    "onLanguage:kotlin",
+    "onLanguage:dart",
+    "onLanguage:go",
+    "onLanguage:rust",
+    "onLanguage:scala"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [{
