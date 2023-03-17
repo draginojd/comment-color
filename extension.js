@@ -8,29 +8,47 @@ const vscode = require('vscode');
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "comment-color" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('comment-color.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Comment Color!');
-	});
-
-	context.subscriptions.push(disposable);
-}
-
-// This method is called when your extension is deactivated
+	function activate(context) {
+		console.log('Congratulations, your extension "comment-color" is now active!');
+	  
+		const decorationTypes = [
+		  { color: 'rgba(255, 0, 0, 0.4)', pattern: /TODO:/ },
+		  { color: 'rgba(0, 255, 0, 0.4)', pattern: /FIXME:/ },
+		  { color: 'rgba(0, 0, 255, 0.4)', pattern: /NOTE:/ },
+		];
+	  
+		decorationTypes.forEach(decorationType => {
+		  const decoration = vscode.window.createTextEditorDecorationType({
+			backgroundColor: decorationType.color,
+		  });
+	  
+		  vscode.window.onDidChangeActiveTextEditor(editor => {
+			if (editor) {
+			  const text = editor.document.getText();
+			  const decorations = [];
+			  const regex = new RegExp(decorationType.pattern, 'g');
+			  let match;
+			  while ((match = regex.exec(text))) {
+				const startPos = editor.document.positionAt(match.index);
+				const endPos = editor.document.positionAt(match.index + match[0].length);
+				const decorationRange = { range: new vscode.Range(startPos, endPos) };
+				decorations.push(decorationRange);
+			  }
+			  editor.setDecorations(decoration, decorations);
+			}
+		  });
+	  
+		  context.subscriptions.push(decoration);
+		});
+	  }
+	  
+	  
+	/**
+ * This method is called when your extension is deactivated
+ */
 function deactivate() {}
 
 module.exports = {
-	activate,
-	deactivate
+  activate,
+  deactivate
 }
