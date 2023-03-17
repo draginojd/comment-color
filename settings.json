@@ -1,0 +1,33 @@
+//This is preferences 
+//These preferences include settings for things like tab size,
+// word wrapping, auto-saving, file exclusions,
+// color and icon themes, shell preferences, and 
+//JavaScript suggestions. 
+//NOTE:Need to customize them based on my preferences and 
+//requirements.
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  "files.associations": {
+    "*.myextension": "myExtensionLanguage"
+  },
+  "workbench.colorTheme": "Default Light+",
+  "workbench.iconTheme": "vscode-icons",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}
