@@ -1,0 +1,36 @@
+{
+  "name": "comment-color",
+  "displayName": "Comment Color",
+  "description": "\"Comment Color is an optimized VS Code extension that helps you visualize your code comments in new ways. By leveraging the power of the ChatGTP API, Comment Color suggests colors for your comments based on their content, making it easy to quickly scan for your comments based on their content, making it easy to quickly scan and identify different types of comments in your code. In addition, Comment Color also includes different modes for color blindness, making it accessible to users with different types of color blindness. Whether you're a developer, a designer,or just someone who wants to make their code more visually appealing, Comment Color is the perfect tool for adding a splash of color to your comments, without slowing down your workflow.\"",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "comment-color.helloWorld",
+      "title": "Hello World"
+    }]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.76.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5",
+    "@vscode/test-electron": "^2.2.3"
+  }
+}
