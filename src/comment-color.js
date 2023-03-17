@@ -10,7 +10,7 @@ function activateCommentColor(context) {
   ];
 
   decorationTypes.forEach((decorationType) => {
-    const decoration = vscode.window.createTextEditorDecorationType({
+    const decoration = require('vscode').window.createTextEditorDecorationType({
       backgroundColor: decorationType.color,
     });
 
