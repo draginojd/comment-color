@@ -1,0 +1,4 @@
+module.exports = {
+    API_KEY: "your_openai_api_key"
+  }
+  
