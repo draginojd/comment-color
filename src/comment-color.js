@@ -1,4 +1,4 @@
-const vscode = require('vscode');
+const vscode = require('vscode'); //import vscode 
 
 function activateCommentColor(context) {
   console.log('Congratulations, your "Comment Color" extension is now active!');
