@@ -1,9 +1,10 @@
-const { activate } = require('./comment-color');
+const { activateCommentColor } = require('./comment-color.js');
+const vscode = require('vscode');
 
 function activate(context) {
   console.log('Congratulations, your extension is now active!');
 
-  activate(context);
+  activateCommentColor(context);
 
   let disposable = vscode.commands.registerCommand('comment-color.active', () => {
     vscode.window.showInformationMessage('Hello from Comment Color!');
@@ -15,3 +16,4 @@ function activate(context) {
 module.exports = {
   activate,
 };
+
