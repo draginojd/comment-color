@@ -1,4 +1,4 @@
-const { activateCommentColor } = require('./comment-color');
+const { activateCommentColor } = require('./comment-color.js');
 
 module.exports = {
   activate: activateCommentColor,

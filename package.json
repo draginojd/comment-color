@@ -35,8 +35,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "comment-color.helloWorld",
-        "title": "Hello World"
+        "command": "comment-color.active",
+        "title": "Activate comment color"
       }
     ]
   },

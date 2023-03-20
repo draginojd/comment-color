@@ -37,3 +37,21 @@ function activateCommentColor(context) {
 module.exports = {
   activateCommentColor,
 };
+
+function activate(context) {
+  console.log('Congratulations, your extension is now active!');
+
+  let disposable = vscode.commands.registerCommand('comment-color.active', () => {
+    // Your command handler code goes here
+    vscode.window.showInformationMessage('Hello from Comment Color!');
+  });
+
+  context.subscriptions.push(disposable);
+}
+
+function deactivate() {}
+
+module.exports = {
+  activate,
+  deactivate
+};
