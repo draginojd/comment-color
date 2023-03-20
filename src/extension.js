@@ -1,4 +1,4 @@
-const { activateCommentColor } = require('./comment-color.js');
+const activateCommentColor = require('./comment-color.js').activateCommentColor;
 const vscode = require('vscode');
 
 function activate(context) {
