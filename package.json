@@ -31,7 +31,7 @@
     "onLanguage:rust",
     "onLanguage:scala"
   ],
-  "main": "./extension.js",
+  "main": "./src/extension.js",
   "contributes": {
     "commands": [
       {
