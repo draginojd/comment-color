@@ -1,37 +1,29 @@
-const vscode = require('vscode'); //import vscode 
+//comment-color.js file
+const vscode = require('vscode');
 
 function activateCommentColor(context) {
-  console.log('Congratulations, your "Comment Color" extension is now active!');
+  console.log('Congratulations, your extension "comment-color" is now active!');
 
-  const decorationTypes = [
-    { color: 'rgba(255, 0, 0, 0.4)', pattern: /TODO:/ },
-    { color: 'rgba(0, 255, 0, 0.4)', pattern: /FIXME:/ },
-    { color: 'rgba(0, 0, 255, 0.4)', pattern: /NOTE:/ },
-  ];
+  // Register the command to change the comment color
+  const disposable = vscode.commands.registerCommand('extension.changeCommentColor', () => {
+    // Get the current configuration
+    const config = vscode.workspace.getConfiguration('editor.tokenColorCustomizations', null);
 
-  decorationTypes.forEach((decorationType) => {
-    const decoration = require('vscode').window.createTextEditorDecorationType({
-      backgroundColor: decorationType.color,
-    });
+    // Set the color of comments to green
+    const commentColor = config.tokenColors.find((color) => color.scope === 'comment');
+    commentColor.settings.foreground = '#00FF00';
 
-    vscode.window.onDidChangeActiveTextEditor((editor) => {
-      if (editor) {
-        const text = editor.document.getText();
-        const decorations = [];
-        const regex = new RegExp(decorationType.pattern, 'g');
-        let match;
-        while ((match = regex.exec(text))) {
-          const startPos = editor.document.positionAt(match.index);
-          const endPos = editor.document.positionAt(match.index + match[0].length);
-          const decorationRange = { range: new vscode.Range(startPos, endPos) };
-          decorations.push(decorationRange);
-        }
-        editor.setDecorations(decoration, decorations);
-      }
-    });
-
-    context.subscriptions.push(decoration);
+    // Update the configuration
+    vscode.workspace
+      .getConfiguration()
+      .update('editor.tokenColorCustomizations', config, vscode.ConfigurationTarget.Global)
+      .then(() => {
+        // Show a message confirming that the color has been changed
+        vscode.window.showInformationMessage('Comment color updated to green');
+      });
   });
+
+  context.subscriptions.push(disposable);
 }
 
 module.exports = {

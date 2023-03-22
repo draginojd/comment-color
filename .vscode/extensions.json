@@ -3,7 +3,6 @@
 	// for the documentation about the extensions.json format
 	"recommendations": [
 		"dbaeumer.vscode-eslint",
-		"draginojd.a.comment-color",
-		"undefined_publisher.comment-color"
+		"undefined_publisher.comment-color",
 	]
 }
