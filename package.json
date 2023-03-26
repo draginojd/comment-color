@@ -10,6 +10,7 @@
     "Other"
   ],
   "activationEvents": [
+    "onCommand:extension.changeCommentColor",
     "onLanguage:html",
     "onLanguage:css",
     "onLanguage:javascript",
@@ -31,12 +32,12 @@
     "onLanguage:rust",
     "onLanguage:scala"
   ],
-  "main": "./extension.js",
+  "main": "./comment-color.js",
   "contributes": {
     "commands": [
       {
-        "command": "comment-color.active",
-        "title": "Activate comment color"
+        "command": "extension.changeCommentColor",
+        "title": "Change comment color"
       }
     ]
   },
